@@ -12,7 +12,12 @@
 const fs = require("fs");
 const path = require("path");
 
-const input = JSON.parse(require("fs").readFileSync(0, "utf8"));
+let input;
+try {
+  input = JSON.parse(require("fs").readFileSync(0, "utf8"));
+} catch {
+  process.exit(0);
+}
 const cwd = input.cwd || process.cwd();
 const docsDir = path.join(cwd, "docs");
 const queueFile = path.join(cwd, ".claude", "doc-queue.json");

@@ -4,5 +4,7 @@
   "version": "1.0.0",
   "author": {
     "name": "ephandor"
-  }
+  },
+  "repository": "https://github.com/ephandor/protocollant",
+  "license": "MIT"
 }

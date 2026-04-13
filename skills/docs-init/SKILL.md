@@ -1,4 +1,5 @@
 ---
+name: docs-init
 description: Scaffold the docs/ knowledge base for this project. Analyzes the codebase and creates initial versions of all managed doc files. Run this once when setting up the project-docs plugin on an existing project.
 ---
 

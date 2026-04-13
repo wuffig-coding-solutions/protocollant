@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/session-start.js"
+            "command": "bun ${CLAUDE_PLUGIN_ROOT}/hooks/session-start.js"
           }
         ]
       }
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/post-tool-use.js"
+            "command": "bun ${CLAUDE_PLUGIN_ROOT}/hooks/post-tool-use.js"
           }
         ]
       }
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/stop.js"
+            "command": "bun ${CLAUDE_PLUGIN_ROOT}/hooks/stop.js"
           }
         ]
       }

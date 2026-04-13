@@ -13,7 +13,13 @@
 const fs = require("fs");
 const path = require("path");
 
-const input = JSON.parse(fs.readFileSync(0, "utf8"));
+let input;
+try {
+  input = JSON.parse(fs.readFileSync(0, "utf8"));
+} catch {
+  process.exit(0);
+}
+
 const cwd = input.cwd || process.cwd();
 const toolInput = input.tool_input || {};
 const changedFile = toolInput.path || toolInput.file_path || "";
@@ -22,6 +28,9 @@ if (!changedFile) process.exit(0);
 
 const queueFile = path.join(cwd, ".claude", "doc-queue.json");
 const rel = path.relative(cwd, changedFile);
+
+// Ignore files outside the project root
+if (rel.startsWith("..")) process.exit(0);
 
 // Map file path patterns → doc file + reason
 const RULES = [
@@ -57,7 +66,7 @@ const RULES = [
       "schema/",
       "migrations/",
       ".prisma",
-      "entity",
+      "entity/",
       ".model.",
     ],
     doc: "data-models.md",
@@ -72,6 +81,7 @@ const RULES = [
       "pyproject.toml",
       "pnpm-lock",
       "yarn.lock",
+      "bun.lock",
     ],
     doc: "dependencies.md",
     reason: `Dependency file changed: ${rel}`,
@@ -85,6 +95,8 @@ const RULES = [
       "k8s/",
       "terraform/",
       "docker-compose",
+      ".yml",
+      ".yaml",
     ],
     doc: "deployment.md",
     reason: `Deployment config changed: ${rel}`,
@@ -119,7 +131,7 @@ const RULES = [
   },
   {
     patterns: [
-      "mcp",
+      "mcp/",
       "webhook",
       "integration/",
       "client/",
@@ -130,7 +142,7 @@ const RULES = [
     reason: `Integration-related change in ${rel}`,
   },
   {
-    patterns: ["perf/", "benchmark", "cache", "optimize", "index/"],
+    patterns: ["perf/", "benchmark", "cache/", "optimize/", "index/"],
     doc: "performance-notes.md",
     reason: `Performance-related change in ${rel}`,
   },
@@ -145,15 +157,16 @@ for (const rule of RULES) {
   }
 }
 
-// Architecture is a catch-all for any non-trivial src change
+// Architecture catch-all: any source file not already matched and not a test
 const isSourceFile = /\.(ts|js|tsx|jsx|py|go|rs|rb|java|kt|swift)$/.test(rel);
 const alreadyHasArch = pending.some((p) => p.doc === "architecture.md");
-if (
-  isSourceFile &&
-  !alreadyHasArch &&
-  !rel.includes("test") &&
-  !rel.includes("spec")
-) {
+const isTestFile =
+  rel.includes("/test/") ||
+  rel.includes("/tests/") ||
+  rel.includes("/__tests__/") ||
+  rel.includes(".test.") ||
+  rel.includes(".spec.");
+if (isSourceFile && !alreadyHasArch && !isTestFile) {
   pending.push({
     doc: "architecture.md",
     reason: `Source file changed: ${rel}`,
@@ -162,7 +175,7 @@ if (
 
 if (pending.length === 0) process.exit(0);
 
-// Append to queue (dedup by doc)
+// Append to queue (dedup by doc, always normalize to reasons[])
 let queue = [];
 if (fs.existsSync(queueFile)) {
   try {
@@ -171,14 +184,14 @@ if (fs.existsSync(queueFile)) {
 }
 
 for (const item of pending) {
-  const exists = queue.find((q) => q.doc === item.doc);
-  if (!exists) {
-    queue.push(item);
+  const existing = queue.find((q) => q.doc === item.doc);
+  if (!existing) {
+    queue.push({ doc: item.doc, reasons: [item.reason], file: item.file });
   } else {
-    // Append reason if new
-    if (!exists.reasons) exists.reasons = [exists.reason];
-    if (!exists.reasons.includes(item.reason)) {
-      exists.reasons.push(item.reason);
+    // Normalize legacy entries that used singular `reason`
+    if (!existing.reasons) existing.reasons = [existing.reason];
+    if (!existing.reasons.includes(item.reason)) {
+      existing.reasons.push(item.reason);
     }
   }
 }
