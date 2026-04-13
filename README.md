@@ -39,7 +39,7 @@ All files live in `docs/`:
 
 ### 1. Install the plugin
 
-This plugin is distributed via [agent-plugins](https://github.com/Niklas-Flaig/agent-plugins). In any Claude Code session:
+This plugin is distributed via [agent-plugins](https://github.com/wuffig-coding-solutions/agent-plugins). In any Claude Code session:
 
 ```
 /plugin install protocollant@agent-plugins
