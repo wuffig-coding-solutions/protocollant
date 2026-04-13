@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * PostToolUse hook — project-docs plugin
+ * PostToolUse hook — protocollant plugin
  *
  * Fires after every Edit/Write/MultiEdit tool call.
  * Detects which knowledge domain(s) the changed file belongs to

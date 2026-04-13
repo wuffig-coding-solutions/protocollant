@@ -1,6 +1,6 @@
 ---
 name: docs-init
-description: Scaffold the docs/ knowledge base for this project. Analyzes the codebase and creates initial versions of all managed doc files. Run this once when setting up the project-docs plugin on an existing project.
+description: Scaffold the docs/ knowledge base for this project. Analyzes the codebase and creates initial versions of all managed doc files. Run this once when setting up the protocollant plugin on an existing project.
 ---
 
 You are performing a one-time knowledge base initialization for this project.
@@ -23,7 +23,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Architecture
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 ## Module Map
 
@@ -43,7 +43,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Known Issues
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 > Format: [OPEN] YYYY-MM-DD — Title
 
 <!-- Add issues here as they are discovered -->
@@ -54,7 +54,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Resolved Bugs
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Add entries as bugs are fixed -->
 ```
@@ -64,7 +64,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Future Work
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Add TODOs, feature ideas, and roadmap items here -->
 ```
@@ -74,7 +74,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Technical Decisions
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 > Use this to record non-obvious choices so future agents don't re-litigate them.
 
 <!-- Add ADR-style entries here -->
@@ -85,7 +85,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # API Contracts
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document endpoints and interface shapes here -->
 ```
@@ -95,7 +95,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Data Models
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document entity shapes, schema, and migrations here -->
 ```
@@ -105,7 +105,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Dependencies
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document key dependency choices and rationale here -->
 ```
@@ -115,7 +115,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Performance Notes
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document bottlenecks, optimizations, and benchmarks here -->
 ```
@@ -125,7 +125,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Security Notes
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document sensitive areas, mitigations, and threat model here -->
 ```
@@ -135,7 +135,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Testing Strategy
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document test patterns, coverage goals, and infrastructure here -->
 ```
@@ -145,7 +145,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Deployment
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document environments, deploy process, and rollback steps here -->
 ```
@@ -155,7 +155,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Integrations
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Document third-party APIs, MCP servers, webhooks here -->
 ```
@@ -165,7 +165,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Onboarding
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 ## Prerequisites
 
@@ -189,7 +189,7 @@ You are performing a one-time knowledge base initialization for this project.
 ```markdown
 # Changelog
 
-> Maintained by project-docs plugin. Last updated: <date>
+> Maintained by protocollant plugin. Last updated: <date>
 
 <!-- Notable changes, newest first -->
 ```

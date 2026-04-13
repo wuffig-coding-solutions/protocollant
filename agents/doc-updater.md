@@ -195,7 +195,7 @@ Find or create the `## Project Knowledge Base` section in `CLAUDE.md` and replac
 ```markdown
 ## Project Knowledge Base
 
-The following docs are maintained by the project-docs plugin. Load the relevant file(s) before starting a task that matches the condition.
+The following docs are maintained by the protocollant plugin. Load the relevant file(s) before starting a task that matches the condition.
 
 | File                        | Load when                                                               |
 | --------------------------- | ----------------------------------------------------------------------- |

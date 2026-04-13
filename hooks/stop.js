@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Stop hook — project-docs plugin
+ * Stop hook — protocollant plugin
  *
  * Fires every time Claude finishes a response.
  * If the doc-queue is non-empty, it returns additionalContext
@@ -40,7 +40,7 @@ const docList = queue
   })
   .join("\n");
 
-const message = `📝 **Doc update pending** (project-docs plugin)
+const message = `📝 **Doc update pending** (protocollant plugin)
 
 The following knowledge docs may be out of date due to changes made this session:
 

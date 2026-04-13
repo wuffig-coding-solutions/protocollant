@@ -1,4 +1,4 @@
-# project-docs — Claude Code Plugin
+# protocollant — Claude Code Plugin
 
 Automatically maintains a structured knowledge base in `docs/` and keeps `CLAUDE.md` in sync. Claude knows about the docs from the first turn of every session — no on-demand skill trigger needed.
 
@@ -35,19 +35,27 @@ All files live in `docs/`:
 | `onboarding.md`        | Setup steps, gotchas for fresh agents      |
 | `changelog.md`         | Notable changes by date                    |
 
-## Install
+## Setup
 
-```bash
-# Add to your project
-/plugin marketplace add <your-marketplace>
-/plugin install project-docs@<your-marketplace>
+### 1. Install the plugin
 
-# Or manually: copy this folder into .claude/plugins/project-docs/
-# Then register it in .claude/settings.json under plugins
+This plugin is distributed via [agent-plugins](https://github.com/Niklas-Flaig/agent-plugins). In any Claude Code session:
 
-# First-time setup
+```
+/plugin install protocollant@agent-plugins
+```
+
+This fetches the plugin from GitHub, registers the hooks, and makes `@doc-updater`, `/docs-init`, and `/docs-sync` available globally.
+
+### 3. Initialize docs for a project
+
+Open a session in the project you want to document, then run:
+
+```
 /docs-init
 ```
+
+This scans the codebase and creates all 15 doc files under `docs/`. After that, documentation updates happen automatically — no further setup needed.
 
 ## Scope
 

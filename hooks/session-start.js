@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * SessionStart hook — project-docs plugin
+ * SessionStart hook — protocollant plugin
  *
  * Reads docs/ and injects a compact routing table into additionalContext.
  * This is how Claude knows about the docs without a separate on-demand skill:
@@ -189,7 +189,7 @@ if (untracked.length > 0) {
 const table = rows.join("\n");
 const initialized = existingDocs.length > 0;
 
-const context = `## Project Knowledge Base (project-docs plugin)
+const context = `## Project Knowledge Base (protocollant plugin)
 
 ${
   initialized
